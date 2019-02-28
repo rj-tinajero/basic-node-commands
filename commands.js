@@ -20,6 +20,14 @@ function evaluateCmd(userInput) {
         case "cat":
             commandLibrary.cat(userInputArray.slice(1));
             break;
+        case "head": 
+            commandLibrary.head(userInputArray.slice(1));
+            break;
+        case "tail":
+            commandLibrary.tail(userInputArray.slice(1));
+            break;
+        default:
+            throw err;
     }
 }
 
@@ -36,9 +44,28 @@ const commandLibrary = {
         fs.readFile(fileName, (err, data) => {
             if(err) throw err;
             done(data);
+        });  
+    },
+
+    //the head command
+    "head": function(fullPath) {
+        const fileName = fullPath[0];
+        fs.readFile(fileName, (err, data) => {
+            if(err) throw err;
+            done(data.slice(0, 101));
         });
+    },
+
+    //the tail command 
+    "tail": function(fullPath) {
+        const fileName = fullPath[0];
+        fs.readFile(fileName, (err, data) => {
+            if(err) throw err;
+            done(data.slice(1715, 1822));
+        })
     }
-};
+}
+
 
 module.exports.commandLibrary = commandLibrary;
 module.exports.evaluateCmd = evaluateCmd;

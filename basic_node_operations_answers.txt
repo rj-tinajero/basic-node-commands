@@ -1,0 +1,107 @@
+1. sort works by categorizing the lines of the file by alphabetical order. 
+break;
+            break;
+            commandLibrary.cat(userInputArray.slice(1));
+            commandLibrary.echo(userInputArray.slice(1).join(" "));
+            done(data);
+            if(err) throw err;
+        //we will add the functionality of echo next within the object commandLibrary
+        case "cat":
+        case "echo":
+        const fileName = fullPath[0];
+        done(userInput);
+        fs.readFile(fileName, (err, data) => {
+        });
+    "cat": function(fullPath) {
+    "echo": function(userInput) {
+    //parses the user input to understand which command was typed
+    //the cat command
+    //the echo command
+    const command = userInputArray[0];
+    const userInputArray = userInput.split(" ");
+    process.stdout.write('\nprompt > ');
+    process.stdout.write(output);
+    switch (command) {
+    }
+    }
+    },
+//where we will store our commands
+//where we will store the logic of our commands
+//write out data
+const commandLibrary = {
+const fs = require("fs");
+function done(output) {
+function evaluateCmd(userInput) {
+module.exports.commandLibrary = commandLibrary;
+module.exports.evaluateCmd = evaluateCmd;
+}
+}
+};
+
+wc gives numerical values for the number of lines, words, and characters in the file. 
+Richards-MacBook-Air-2:basic-node-operations Richard$ wc commands.js
+      43     118    1160 commands.js
+
+uniq sorts throught he file contents and only return different lines. It wont give you any duplicates if there are any.
+Richards-MacBook-Air-2:basic-node-operations Richard$ uniq commands.js
+const fs = require("fs");
+
+//write out data
+function done(output) {
+    process.stdout.write(output);
+    process.stdout.write('\nprompt > ');
+}
+
+//where we will store our commands
+function evaluateCmd(userInput) {
+    //parses the user input to understand which command was typed
+    const userInputArray = userInput.split(" ");
+    const command = userInputArray[0];
+
+    switch (command) {
+        case "echo":
+        //we will add the functionality of echo next within the object commandLibrary
+            commandLibrary.echo(userInputArray.slice(1).join(" "));
+            break;
+        case "cat":
+            commandLibrary.cat(userInputArray.slice(1));
+            break;
+    }
+}
+
+//where we will store the logic of our commands
+const commandLibrary = {
+    //the echo command
+    "echo": function(userInput) {
+        done(userInput);
+    },
+
+    //the cat command
+    "cat": function(fullPath) {
+        const fileName = fullPath[0];
+        fs.readFile(fileName, (err, data) => {
+            if(err) throw err;
+            done(data);
+        });
+    }
+};
+
+module.exports.commandLibrary = commandLibrary;
+
+2. uniq bash.js | wc
+output was 12, 43, 372
+This output was given because the uniq command outputs the sorted lines of code and gives no duplicates of code.
+This data was then passed into the wc command and return the data for the lines, words and characters of the data that was 
+given from the uniq command. 
+
+6.
+function reverseString(inputString) {
+    let newArr = str.split(' ');
+	let newerArr = [];
+	newArr.forEach((x) => {
+		newerArr.push(x.split('').reverse().join(''));
+    })
+    return newerArr;
+}
+
+reverseString("I'm learning to program algorithms!);
